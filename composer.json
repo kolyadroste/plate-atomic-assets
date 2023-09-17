@@ -2,15 +2,12 @@
     "name": "atomicplan/plate-atomic-assets",
     "version": "0.5.0",
     "type": "typo3-cms-extension",
-    "description": "Provides a Js/Css Framework. No assets are included. They can be loaded from here",
-    "authors": [
-        {
-            "name": "Kolya von Droste zu Vischering",
-            "role": "Developer"
-        }
-    ],
-    "replace": {
-        "typo3-ter/atomicplan/plate-atomic-styles": "self.version"
+    "description": "Plate Ces - Provide a set of contentelements",
+    "license": "GPL-2.0-or-later",
+    "keywords": ["TYPO3 CMS", "Integrators", "Site Extension", "Site Package", "TypoScript"],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "typo3/cms-core": "^11.0 || ^12.0"
     },
     "extra": {
         "typo3/cms": {
@@ -19,7 +16,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Atomicplan\\PlateAtomicAssets\\": "Classes"
+            "AtomicPlan\\PlateAtomicAssets\\": "Classes/"
         }
+    },
+    "require-dev": {
+
+    },
+    "config": {
+        "sort-packages": true
     }
 }
