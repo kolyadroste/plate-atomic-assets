@@ -1,0 +1,8 @@
+{
+  "name": "container-queries",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "container-query-polyfill": "^1.0.2"
+  }
+}

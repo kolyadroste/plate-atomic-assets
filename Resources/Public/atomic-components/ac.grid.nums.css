@@ -1,0 +1,210 @@
+/* grid */
+.\@container{
+    container: container / inline-size;
+}
+.ac-grid-n\:\:cols-1{
+    display:grid;
+    grid-template-columns: minmax(0,1fr);
+}
+.ac-grid-n\:\:cols-2{
+    display:grid;
+    grid-template-columns: minmax(0,1fr);
+}
+.ac-grid-n\:\:cols-3{
+    display:grid;
+    grid-template-columns: minmax(0,1fr);
+}
+.ac-grid-n\:\:cols-4{
+    display:grid;
+    grid-template-columns: minmax(0,1fr);
+}
+.ac-grid-n\:\:cols-5{
+    display:grid;
+    grid-template-columns: minmax(0,1fr);
+}
+.ac-grid-n\:\:cols-6{
+    display:grid;
+    grid-template-columns: minmax(0,1fr);
+}
+@container (min-width: 481px){
+    .ac-grid-n\:\:cols-2,
+    .ac-grid-n,
+    .ac-grid-n\:\:cols-3,
+    .ac-grid-n\:\:cols-4,
+    .ac-grid-n\:\:cols-5,
+    .ac-grid-n\:\:cols-6{
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+    }
+}
+@container (min-width: 768px){
+    .ac-grid-n\:\:cols-3,
+    .ac-grid-n\:\:cols-4,
+    .ac-grid-n\:\:cols-5,
+    .ac-grid-n\:\:cols-6{
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+}
+@container (min-width: 992px){
+    .ac-grid-n\:\:cols-4,
+    .ac-grid-n\:\:cols-5,
+    .ac-grid-n\:\:cols-6{
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+}
+@container (min-width: 1200px){
+    .ac-grid-n\:\:cols-5,
+    .ac-grid-n\:\:cols-6{
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+}
+@container (min-width: 1400px){
+    .ac-grid-n\:\:cols-6{
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+}
+@container (min-width: 481px){
+    .xs\(ac-grid-n\:\:cols-1\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr);
+    }
+    .xs\(ac-grid-n\:\:cols-2\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+    }
+    .xs\(ac-grid-n\),
+    .xs\(ac-grid-n\:\:cols-3\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+    .xs\(ac-grid-n\:\:cols-4\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+}
+@container (min-width: 577px){
+    .sm\(ac-grid-n\:\:cols-1\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr);
+    }
+    .sm\(ac-grid-n\:\:cols-2\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+    }
+    .sm\(ac-grid-n\),
+    .sm\(ac-grid-n\:\:cols-3\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+    .sm\(ac-grid-n\:\:cols-4\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+}
+@container (min-width: 769px){
+    .md\(ac-grid-n\:\:cols-1\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr);
+    }
+    .md\(ac-grid-n\:\:cols-2\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+    }
+    .md\(ac-grid-n\),
+    .md\(ac-grid-n\:\:cols-3\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+    .md\(ac-grid-n\:\:cols-4\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+    .md\(ac-grid-n\:\:cols-5\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+    .md\(ac-grid-n\:\:cols-6\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+}
+@container (min-width: 993px){
+    .lg\(ac-grid-n\:\:cols-1\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr);
+    }
+    .lg\(ac-grid-n\:\:cols-2\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+    }
+    .lg\(ac-grid-n\),
+    .lg\(ac-grid-n\:\:cols-3\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+    .lg\(ac-grid-n\:\:cols-4\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+    .lg\(ac-grid-n\:\:cols-5\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+    .lg\(ac-grid-n\:\:cols-6\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+}
+@container (min-width: 1201px){
+    .xl\(ac-grid-n\:\:cols-1\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr);
+    }
+    .xl\(ac-grid-n\:\:cols-2\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+    }
+    .xl\(ac-grid-n\),
+    .xl\(ac-grid-n\:\:cols-3\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+    .xl\(ac-grid-n\:\:cols-4\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+    .xl\(ac-grid-n\:\:cols-5\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+    .xl\(ac-grid-n\:\:cols-6\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+}
+@container (min-width: 1401px){
+    .xxl\(ac-grid-n\:\:cols-1\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr);
+    }
+    .xxl\(ac-grid-n\:\:cols-2\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+    }
+    .xxl\(ac-grid-n\),
+    .xxl\(ac-grid-n\:\:cols-3\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+    .xxl\(ac-grid-n\:\:cols-4\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+    .xxl\(ac-grid-n\:\:cols-5\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+    .xxl\(ac-grid-n\:\:cols-6\){
+        display:grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    }
+}

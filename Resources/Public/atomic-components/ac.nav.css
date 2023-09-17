@@ -1,0 +1,10 @@
+.ac-nav > ul > *,
+.ac-nav > ul atomic-button > *{
+    font-weight: var(--ac-nav-font-weight,bold);
+    font-size: var(--ac-nav-font-size);
+    font-family: var(--ac-nav-font-family,'Arial,sans-serif');
+    text-transform: var(--ac-nav-text-transform);
+    line-height: var(--ac-nav-line-height,1.2em);
+    letter-spacing: var(--ac-nav-letter-spacing);
+    margin: var(--ac-nav-margin,0px);
+}

@@ -1,0 +1,31 @@
+@mixin rfsWithVars($values, $varname: '', $property: font-size) {
+  @if $values != null {
+    $val: rfs-value($values);
+    $fluidVal: rfs-fluid-value($values);
+
+    // Do not print the media query if responsive & non-responsive values are the same
+    @if $val == $fluidVal {
+      #{$property}: if($varname == '', $val, var($varname, $val));
+    }
+    @else {
+      @include _rfs-rule {
+        $temp: if($rfs-mode == max-media-query, $val, $fluidVal);
+        #{$property}: if($varname == '', $val, var($varname, $temp));
+
+        // Include safari iframe resize fix if needed
+        min-width: if($rfs-safari-iframe-resize-bug-fix, (0 * 1vw), null);
+      }
+
+      @include _rfs-media-query-rule {
+        $temp: if($rfs-mode == max-media-query, $fluidVal, $val);
+        #{$property}: if($varname == '', $val, var($varname, $temp));
+
+      }
+    }
+  }
+}
+
+// Shorthand helper mixins
+@mixin font-size-vars($value, $varname){
+  @include rfsWithVars($value, $varname);
+}

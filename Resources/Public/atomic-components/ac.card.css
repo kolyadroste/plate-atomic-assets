@@ -1,0 +1,11 @@
+.ac-card{
+     background: var(--ac-card-bg, #eee);
+     border: var(--ac-card-border, none);
+     text-shadow: var(--ac-card-text-shadow, none);
+}
+.frame-background-primary,
+.frame-background-secondary,
+.frame-background-tertiary{
+     --ac-card-bg: transparent;
+     --ac-card-text-shadow: 0 0 5px #000;
+}

@@ -1,0 +1,32 @@
+form.ac-form\:\:default label{
+    font-size:var(--vars-font-size-small);
+}
+form.ac-form\:\:default.form-group{
+    margin-bottom:var(--vars-margin-small);
+}
+/* reset margin, because it should be done by flex gap */
+form.ac-form\:\:default .ac-12grid > [class^='a-w-'] > .ac-form-group{
+    margin-bottom:0;
+}
+form.ac-form\:\:default input{
+    padding:var(--vars-gap-tiny, 5px);
+    border-radius: 3px;
+    border:solid 1px #999;
+}
+form.ac-form\:\:default input:hover{
+    border-radius: 3px;
+    border:solid 1px #444;
+    background:#fefefe;
+    box-sizing: border-box;
+}
+form.ac-form\:\:default:not(.no-stretching) textarea,
+form.ac-form\:\:default:not(.no-stretching) input[type="text"]{
+    min-width:100%;
+    box-sizing: border-box;
+}
+form.ac-form\:\:default textarea{
+    min-height:200px;
+    padding:var(--vars-gap-tiny, 5px);
+    border-radius: 3px;
+    box-sizing: border-box;
+}

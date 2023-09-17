@@ -1,0 +1,57 @@
+.ac-justify-content-start {
+    justify-content: flex-start !important;
+}
+.ac-justify-content-center {
+    justify-content: center !important;
+}
+.ac-justify-content-end {
+    justify-content: flex-end !important;
+}
+/* small*/
+@container (min-width: 576px) {
+    .ac-csm\:justify-content-start {
+        justify-content: flex-start !important;
+    }
+    .ac-csm\:justify-content-center {
+        justify-content: center !important;
+    }
+    .ac-csm\:justify-content-end {
+        justify-content: flex-end !important;
+    }
+}
+/* medium */
+@container (min-width: 768px) {
+    .ac-cmd\:justify-content-start {
+        justify-content: flex-start !important;
+    }
+    .ac-cmd\:justify-content-center {
+        justify-content: center !important;
+    }
+    .ac-cmd\:justify-content-end {
+        justify-content: flex-end !important;
+    }
+}
+/* large */
+@container (min-width: 992px) {
+    .ac-clg\:justify-content-start {
+        justify-content: flex-start !important;
+    }
+    .ac-clg\:justify-content-center {
+        justify-content: center !important;
+    }
+    .ac-clg\:justify-content-end {
+        justify-content: flex-end !important;
+    }
+}
+/* xlarge */
+@container (min-width: 1200px) {
+    .ac-cxl\:justify-content-start {
+        justify-content: flex-start !important;
+    }
+    .ac-cxl\:justify-content-center {
+        justify-content: center !important;
+    }
+    .ac-cxl\:justify-content-end {
+        justify-content: flex-end !important;
+    }
+}

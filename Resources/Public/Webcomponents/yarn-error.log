@@ -1,0 +1,51 @@
+Arguments: 
+  /home/kjasker/.nvm/versions/node/v19.2.0/bin/node /home/kjasker/.npm/bin/yarn install
+
+PATH: 
+  /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/kjasker/.nvm/versions/node/v19.2.0/bin:./node_modules/.bin:/home/kjasker/.npm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Oculus/Support/oculus-runtime:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/nodejs/:/mnt/c/tools/gsudo/Current:/mnt/c/Program Files/DDEV:/mnt/c/Program Files/PuTTY/:/Docker/host/bin:/mnt/c/Program Files/WireGuard/:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Users/jaske/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/JetBrains/PhpStorm 2022.3.2/bin:/mnt/c/Users/jaske/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  19.2.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/kjasker/projects/ap-t3base/ddev-bsbase/Packages/plate_atomic_assets/Resources/Public/Webcomponents/package.json: Expected double-quoted property name in JSON at position 427
+      at JSON.parse (<anonymous>)
+      at /home/kjasker/.npm/lib/node_modules/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/home/kjasker/.npm/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /home/kjasker/.npm/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "atomic-bootstrap",
+    "version": "0.0.1",
+    "description": "Provides a build process that splits Boostrap into atomic css components. Dynamic loading of these components can lead to a drastic acceleration of the online project.",
+    "main": "index.html",
+    "author": "Kolya Thorstein von Droste zu Vischering - Jasker",
+    "license": "MIT",
+    "devDependencies": {
+      "gulp": "^4.0.2",
+      "gulp-minify": "^5.1.0",
+    },
+    "dependencies": {
+    },
+    "scripts": {
+      "build": "npm run build",
+      "buildCss": "node build.js",
+      "test": "node test.js",
+      "min": "node min.js",
+      "serve": "vite preview"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

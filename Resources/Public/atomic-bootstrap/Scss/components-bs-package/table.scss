@@ -1,0 +1,10 @@
+@import 'bootstrap/scss/tables';
+//
+// Condensed table w/ half padding
+// --------------------------------------------------
+.table-condensed {
+    @extend .table-sm;
+}
+table.table > tbody > tr > td:first-child{
+    padding-left: 0;
+}

@@ -1,0 +1,1 @@
+.textteaser{display:flex;flex-wrap:wrap;gap:1rem}@media(min-width: 768px){.textteaser{gap:40px}}.textteaser-item{order:1;width:100%}.textteaser-item>*:last-child{margin-bottom:0}@media(min-width: 768px){.textteaser-teaser{width:calc(33.3333333333% - (40px / 2))}.textteaser-text{width:calc(66.6666666667% - (40px / 2))}}

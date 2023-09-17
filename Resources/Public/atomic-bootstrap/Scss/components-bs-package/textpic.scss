@@ -1,0 +1,133 @@
+//
+// Textpic and Textmedia
+// --------------------------------------------------
+.textmedia,
+.textpic {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: var(--textpicmedia-gap, #{$grid-gutter-width});
+}
+.textmedia-item,
+.textpic-item {
+    order: 1;
+    width: 100%;
+}
+.textmedia-text,
+.textpic-text {
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+//
+// Alignments
+// --------------------------------------------------
+.textmedia-centered,
+.textpic-centered {
+    align-items: center;
+}
+.textmedia-below,
+.textpic-below {
+    .textmedia-text,
+    .textpic-text {
+        order: 0;
+    }
+    .textmedia-gallery,
+    .textpic-gallery {
+        margin-bottom: 0;
+    }
+}
+@include media-breakpoint-up('md') {
+    .textmedia-right,
+    .textmedia-left,
+    .textpic-right,
+    .textpic-left {
+        .textmedia-item,
+        .textpic-item {
+            width: calc(50% - (#{$grid-gutter-width} / 2));
+        }
+    }
+    .textmedia-right,
+    .textpic-right {
+        .textmedia-gallery,
+        .textpic-gallery {
+            order: 2;
+        }
+    }
+    .textpic-innerright,
+    .textpic-innerleft{
+        display: block;
+    }
+    .textpic-innerright .textmedia-gallery,
+    .textpic-innerright .textpic-gallery {
+        float: right;
+        margin-left: var(--bs-textimage-margin, 30px);
+        margin-bottom: var(--bs-textimage-margin-bottom, 20px);
+        width: auto;
+    }
+    .textpic-innerleft .textmedia-gallery,
+    .textpic-innerleft .textpic-gallery {
+        float: left;
+        margin-right: var(--bs-textimage-margin, 30px);
+        margin-bottom: var(--bs-textimage-margin-bottom, 20px);
+        width: auto;
+    }
+}
+
+// modify bs-package defaults
+
+// when Textpic is placed with full pagewidth, the text should align to the ce-frames
+@include media-breakpoint-up('xl') {
+    :root{
+        --bs-textimage-textinner-width: var(--frame-width-xl);
+    }
+}
+@include media-breakpoint-up('xxl') {
+    :root{
+        --bs-textimage-textinner-width: var(--frame-width-xxl);
+    }
+}
+
+// when Textpic is colorized add top-bottom-padding
+.frame.-colorized .textpic.textpic-centered .textpic-text-inner{
+    padding: var(--bs-gap-large, 20px);
+}
+@include media-breakpoint-up('md') {
+    .frame.-colorized .textpic.textpic-centered .textpic-text-inner{
+        padding-left:0;
+        padding-right:0;
+    }
+}
+// restrict text-width to container-width
+.frame.-colorized .textpic-text-inner{
+    width: calc(var(--bs-textimage-textinner-width) / 2 - var(--bs-gap-default, 20px));
+}
+
+// textpixtext optimizations
+.textpic-text-inner *:last-child{
+    margin-bottom: 0;
+}
+@include media-breakpoint-down('md') {
+   :root{
+       --textpicmedia-gap: 0;
+   }
+}
+
+// when frame is colorized, add stretch image to ce-height
+@include media-breakpoint-up('md') {
+    .frame.-colorized > .frame-group-container > .frame-group-inner > .frame-container > .frame-inner > .textpic > .textpic-gallery {
+        align-self: stretch;
+    }
+    .frame.-colorized > .frame-group-container > .frame-group-inner > .frame-container > .frame-inner > .textpic:not(.textpic-innerleft):not(.textpic-innerright) .textpic-gallery .gallery-row {
+        height: 100%;
+        position: relative;
+    }
+
+    .frame.-colorized > .frame-group-container > .frame-group-inner > .frame-container > .frame-inner >  .textpic:not(.textpic-innerleft):not(.textpic-innerright) .textpic-gallery .gallery-item-size-1 img {
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+    }
+}

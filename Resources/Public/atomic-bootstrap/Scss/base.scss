@@ -1,0 +1,24 @@
+// Import of Bootstrap 5 functions, variables and mixins
+xxxxxxxxxx{
+  background:red;
+}
+
+@import "bootstrap/scss/functions";
+@import "../T3BoostrapPackage/variables";
+@import "Scss/bs-modified/variables";
+@import "bootstrap/scss/mixins";
+
+// Import of "above the fold" relevant Bootstrap 5 Components
+@import "bootstrap/scss/vendor/rfs"; // Container
+@import "Scss/bs-additions/rfs"; // Container
+@import "Scss/bs-additions/container.queries"; // Container
+@import "bootstrap/scss/maps"; // Grid-maps
+//@import "bootstrap/scss/root"; // CSS-variables
+@import "bs-modified/reboot"; // CSS-Reset
+@import "bs-modified/type"; // Typografy
+@import "bootstrap/scss/images"; // Images
+@import "bs-modified/containers"; // Container
+//@import "bootstrap/scss/utilities"; // Container
+//@import "bootstrap/scss/nav"; // Navigation
+//@import "bootstrap/scss/navbar"; // Navbar
+//@import "bootstrap/scss/grid"; // Grid-System
