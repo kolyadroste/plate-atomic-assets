@@ -1,6 +1,5 @@
 {
     "name": "atomicplan/plate-atomic-assets",
-    "version": "0.5.0",
     "type": "typo3-cms-extension",
     "description": "Plate Ces - Provide a set of contentelements",
     "license": "GPL-2.0-or-later",
