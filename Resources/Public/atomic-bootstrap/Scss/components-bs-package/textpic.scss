@@ -109,10 +109,11 @@
     margin-bottom: 0;
 }
 @include media-breakpoint-down('md') {
-   :root{
-       --textpicmedia-gap: 0;
-   }
+    :root{
+        --textpicmedia-gap: var(--bs-gap-medium, 10px);
+    }
 }
+
 
 // when frame is colorized, add stretch image to ce-height
 @include media-breakpoint-up('md') {
@@ -129,5 +130,12 @@
         object-fit: cover;
         position: absolute;
         top: 0;
+    }
+}
+
+@include media-breakpoint-down('sm') {
+    .textmedia,
+    .textpic {
+        flex-direction: column;
     }
 }
