@@ -114,32 +114,21 @@ export default class AtomicSlider extends HTMLElement {
     super.attributeChangedCallback(name, oldValue, newValue);
   }
 
-  _parseTimeStringToMilliSeconds(timeString){
-    if(timeString === null || timeString === ""){
-      return 1000;
+  _parseTimeStringToMilliSeconds(timeString) {
+    if (timeString === null || timeString === "") {
+      return 10000;
     }
     var time;
-    if(this.time.search("ms") === 1){
-      time = timeString.replace('ms','');
+    if (timeString.includes("ms") === true) {
+      time = timeString.replace('ms', '');
       return time;
-    }
-    else if(this.time.search("s") === 1){
-      time = timeString.replace('s','');
+    } else if (timeString.includes("s") === true) {
+      time = timeString.replace('s', '');
       return time * 1000;
-    }else{
-      return timeString.match(/\d+/g);
+    } else {
+      return 10000;
     }
   }
-
-  // update(changedProperties){
-  //   super.update();
-  //   if(changedProperties.has('gotoSlide')){
-  //     this._goToSlide(this.gotoSlide);
-  //   }
-  //   if(!changedProperties.has('disablePrevNext')){
-  //     this.initNavDots();
-  //   }
-  // }
 
   _dispatchSlideChange() {
     let slideChange = new CustomEvent('atomic-slider-slided', {
