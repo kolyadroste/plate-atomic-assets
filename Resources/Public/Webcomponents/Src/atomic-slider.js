@@ -84,6 +84,10 @@ export default class AtomicSlider extends HTMLElement {
     return this.getAttribute('targetNavDots');
   }
 
+  get disableNavDots(){
+    return this.hasAttribute('disableNavDots');
+  }
+
   get predefinedNavDots(){
     if(!this.targetNavDots) return [];
     let dots;
@@ -408,7 +412,7 @@ export default class AtomicSlider extends HTMLElement {
         <div class="slides">
           <slot @slotchange="${this._onSlotchange}"></slot>        
         </div>
-        ${this.predefinedNavDots.length === 0 ? `
+        ${!this.disableNavDots && this.predefinedNavDots.length === 0 ? `
           <div class="nav-dot-wrapper">
             <ul class="nav-dots ${this.predefinedNavDots.length != 0 ? "hidden" :""} ">Dot-Navigation: no slides found</ul>
             <atomic-loadingbar time="${this.timeMs}" begin></atomic-loadingbar>
