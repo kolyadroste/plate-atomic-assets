@@ -40,8 +40,6 @@ export default class AtomicSlide extends HTMLElement {
       this.removeAttribute("full-window");
       this.setAttribute("containered", "");
     }
-    console.log((this.getBoundingClientRect().width - window.innerWidth));
-
   }
 
 
