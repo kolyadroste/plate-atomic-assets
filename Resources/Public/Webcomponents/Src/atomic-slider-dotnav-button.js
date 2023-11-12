@@ -34,15 +34,14 @@ class AtomicSliderDotnavButton extends HTMLElement {
           </style>
           <slot></slot>
         `;
-        this._button = this.shadowRoot.querySelector('button');
     }
 
     connectedCallback() {
-        this._button.addEventListener('click', this._handleClick.bind(this));
+        this.addEventListener('click', this._handleClick.bind(this));
     }
 
     disconnectedCallback() {
-        this._button.removeEventListener('click', this._handleClick.bind(this));
+        this.removeEventListener('click', this._handleClick.bind(this));
     }
 
     get label() {
