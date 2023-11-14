@@ -99,7 +99,7 @@
 }
 
 .d-flex {
-    display: flex !important
+    display: var(--bs-d-flex, flex) !important
 }
 
 .d-inline-flex {
@@ -107,7 +107,7 @@
 }
 
 .d-none {
-    display: none !important
+    display: var(--bs-d-none, none) !important
 }
 
 .shadow {
@@ -119,23 +119,23 @@
 }
 
 .position-static {
-    position: static !important
+    position: var(--bs-fixed, static) !important
 }
 
 .position-relative {
-    position: relative !important
+    position: var(--bs-fixed, relative) !important
 }
 
 .position-absolute {
-    position: absolute !important
+    position: var(--bs-fixed, absolute) !important
 }
 
 .position-fixed {
-    position: fixed !important
+    position: var(--bs-fixed, fixed) !important
 }
 
 .position-sticky {
-    position: sticky !important
+    position: var(--bs-fixed, sticky)  !important
 }
 
 .top-0 {
