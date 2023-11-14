@@ -119,23 +119,23 @@
 }
 
 .position-static {
-    position: var(--bs-fixed, static) !important
+    position: var(--bs-position-static, static) !important
 }
 
 .position-relative {
-    position: var(--bs-fixed, relative) !important
+    position: var(--bs-position-relative, relative) !important
 }
 
 .position-absolute {
-    position: var(--bs-fixed, absolute) !important
+    position: var(--bs-position-absolute, absolute) !important
 }
 
 .position-fixed {
-    position: var(--bs-fixed, fixed) !important
+    position: var(--bs-position-fixed, fixed) !important
 }
 
 .position-sticky {
-    position: var(--bs-fixed, sticky)  !important
+    position: var(--bs-position-sticky, sticky)  !important
 }
 
 .top-0 {
