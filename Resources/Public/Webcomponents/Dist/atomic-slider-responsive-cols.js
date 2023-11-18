@@ -106,8 +106,8 @@ class AtomicSliderResponsiveCols extends HTMLElement {
             if (i % (colsAmount) === 0) {
                 col = document.createElement('div');
                 col.setAttribute("asrc-container", "");
-                col.classList.add('row');
-                col.classList.add('col-' + colsAmount);
+                col.classList.add('asrc-row');
+                col.classList.add('asrc-col-' + colsAmount);
                 col.setAttribute('data-num', countColNum);
                 col.style.display = "grid";
                 col.style.width = "100%";
