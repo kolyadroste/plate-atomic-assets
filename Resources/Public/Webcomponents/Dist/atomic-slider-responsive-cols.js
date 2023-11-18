@@ -86,7 +86,6 @@ class AtomicSliderResponsiveCols extends HTMLElement {
         this.setAttribute('data-cols', cols);
 
         this._putElementsInCols(cols);
-        this.slider.connectedCallback();
     }
 
     _putElementsInCols(colsAmount) {
