@@ -51,8 +51,11 @@ class AtomicButton extends HTMLElement {
             background:var(--atomic-button-background-hover, #22509a);
             color:var(--atomic-button-color-hover, white);
         }
+        :host(:hover) ::slotted(*){
+            color:var(--atomic-button-color-hover, white) !important;
+        }
         :host([transparent]:hover){
-            color:var(--atomic-button--color-transparent-hover, white);
+            color:var(--atomic-button-transparent-color-hover, white);
         }
         .flex{
             display:flex;
