@@ -66,7 +66,9 @@ class AtomicCountup extends HTMLElement {
     }
 
     render() {
-        this.textContent = parseFloat(this._value.toFixed(this._precision));
+        let textContent = parseFloat(this._value.toFixed(this._precision));
+        textContent = textContent.toString().replace(/\.(?=[^.]*$)/, ',');
+        this.textContent = textContent;
     }
 }
 
