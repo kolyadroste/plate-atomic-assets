@@ -45,6 +45,7 @@ class AtomicScrolltotop extends HTMLElement {
             z-index: var(--atomic-scrolltotop-zindex,1000);
             inset: var(--atomic-scrolltotop-inset, auto 30px 30px auto);
             background: var(--atomic-scrolltotop-bg, #eee);
+            color: var(--atomic-scrolltotop-color, #333);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -53,7 +54,7 @@ class AtomicScrolltotop extends HTMLElement {
             height: var(--atomic-scrolltotop-height, 40px);
             opacity: 0;
             box-sizing: border-box;
-            transition: opacity 0.5s ease-in-out; 
+            transition: all 0.5s ease-in-out; 
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
         :host(.show) {
@@ -73,9 +74,15 @@ class AtomicScrolltotop extends HTMLElement {
             display: block;
             width: 10px;
             height: 10px;
+            position: relative;
+            top: var(--atomic-scrolltotop-icon-shifttop, 2px);
             border-bottom: 5px solid var(--atomic-scrolltotop-icon-color, #333);
             border-right: 5px solid var(--atomic-scrolltotop-icon-color, #333);
             transform: rotate(-135deg);
+        }
+        :host(.show:hover) .arrow span{
+            border-bottom: 5px solid var(--atomic-scrolltotop-icon-color-hover, #000);
+            border-right: 5px solid var(--atomic-scrolltotop-icon-color-hover, #000);
         }
       </style>
 
