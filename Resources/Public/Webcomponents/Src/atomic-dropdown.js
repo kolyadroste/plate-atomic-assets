@@ -85,9 +85,13 @@ class AtomicDropdown extends HTMLElement {
         event.stopPropagation();
         if(this.isOpen){
             this.closeDropdown(event);
+            document.removeEventListener('click', this.boundHandleClickOutside);
         } else {
             this.openDropdown();
-            this._activateClickOutside();
+            this.boundHandleClickOutside = this.handleClickOutside.bind(this);
+            setTimeout(() => { // Dies stellt sicher, dass der Listener nicht sofort ausgelöst wird
+                document.addEventListener('click', this.boundHandleClickOutside, false);
+            }, 0);
         }
         if(this.group){
             this.closeGroupMembers();
@@ -95,10 +99,10 @@ class AtomicDropdown extends HTMLElement {
     };
 
     handleClickOutside(event){
-        if (event.target) {
+        if (this.contains(event.target) === false) {
             this.closeDropdown(event);
+            document.removeEventListener('click', this.boundHandleClickOutside);
         }
-        document.removeEventListener('click', this.handleClickOutside);
     };
 
     handleTransitionEnd(){
@@ -208,12 +212,12 @@ class AtomicDropdown extends HTMLElement {
                     overflow: hidden;
                     max-height: 0px;
                     opacity: 0;
-                    padding: 30px;
+                    padding: var(--atomic-dropdown-outer-padding, 30px)
                     margin-left: -30px;
                     padding-top: var(--atomic-dropdown-space-top, 10px);
                 }
                 :host([openleft]) .slide{
-                    right:0;
+                    right:calc(var(--atomic-dropdown-outer-padding, 30px) * -1);
                 }
 
                 .slide-content{
