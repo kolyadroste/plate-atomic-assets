@@ -413,8 +413,6 @@ export default class AtomicSlider extends HTMLElement {
   }
 
   render() {
-    console.log("predefinedNavDots");
-    console.log(this.predefinedNavDots.length);
     this.shadowRoot.innerHTML = `  
         <slot name="previous-next" class='${this.disablePrevNext === true ? "hidden" :""} '></slot>
         
