@@ -413,13 +413,16 @@ export default class AtomicSlider extends HTMLElement {
   }
 
   render() {
+    console.log("predefinedNavDots");
+    console.log(this.predefinedNavDots.length);
     this.shadowRoot.innerHTML = `  
         <slot name="previous-next" class='${this.disablePrevNext === true ? "hidden" :""} '></slot>
         
         <div class="slides">
             <slot @slotchange="${this._onSlotchange}"></slot>        
         </div>
-        <div class="nav-dot-wrapper ${this.disableNavDots === true ? `hidden` : ""}">
+        test:${this.predefinedNavDots}
+        <div class="nav-dot-wrapper ${this.disableNavDots === true || this.predefinedNavDots.length > 0 ? `hidden` : ""}">
             <ul class="nav-dots">Dot-Navigation: no slides found</ul>
             <atomic-loadingbar time="${this.timeMs}" begin></atomic-loadingbar>
         </div>
