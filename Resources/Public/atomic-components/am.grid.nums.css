@@ -2,26 +2,32 @@
 .am-grid-n\:\:cols-1{
     display:grid;
     grid-template-columns: minmax(0,1fr);
+    gap: var(--pac-gridnums-gap, 1rem);
 }
 .am-grid-n\:\:cols-2{
     display:grid;
     grid-template-columns: minmax(0,1fr);
+    gap: var(--pac-gridnums-gap, 1rem);
 }
 .am-grid-n\:\:cols-3{
     display:grid;
     grid-template-columns: minmax(0,1fr);
+    gap: var(--pac-gridnums-gap, 1rem);
 }
 .am-grid-n\:\:cols-4{
     display:grid;
     grid-template-columns: minmax(0,1fr);
+    gap: var(--pac-gridnums-gap, 1rem);
 }
 .am-grid-n\:\:cols-5{
     display:grid;
     grid-template-columns: minmax(0,1fr);
+    gap: var(--pac-gridnums-gap, 1rem);
 }
 .am-grid-n\:\:cols-6{
     display:grid;
     grid-template-columns: minmax(0,1fr);
+    gap: var(--pac-gridnums-gap, 1rem);
 }
 @media (min-width: 481px){
     .am-grid-n\:\:cols-2,
