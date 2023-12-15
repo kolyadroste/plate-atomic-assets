@@ -419,7 +419,7 @@ export default class AtomicSlider extends HTMLElement {
         <div class="slides">
             <slot @slotchange="${this._onSlotchange}"></slot>        
         </div>
-        test:${this.predefinedNavDots}
+        ${this.predefinedNavDots}
         <div class="nav-dot-wrapper ${this.disableNavDots === true || this.predefinedNavDots.length > 0 ? `hidden` : ""}">
             <ul class="nav-dots">Dot-Navigation: no slides found</ul>
             <atomic-loadingbar time="${this.timeMs}" begin></atomic-loadingbar>
