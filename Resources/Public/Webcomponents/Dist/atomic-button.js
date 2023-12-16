@@ -43,10 +43,6 @@ class AtomicButton extends HTMLElement {
              cursor:pointer;
              text-decoration: none;
         }
-        :host([transparent]){
-            background:transparent;
-            color:var(--atomic-button-color-transparent,  #22509a);
-        }
         :host(:hover){
             background:var(--atomic-button-background-hover, #22509a);
             color:var(--atomic-button-color-hover, white);
@@ -54,7 +50,12 @@ class AtomicButton extends HTMLElement {
         :host(:hover) ::slotted(*){
             color:var(--atomic-button-color-hover, white) !important;
         }
+        :host([transparent]){
+            background:transparent;
+            color:var(--atomic-button-color-transparent,  #22509a);
+        }
         :host([transparent]:hover){
+            background:transparent;
             color:var(--atomic-button-transparent-color-hover, white);
         }
         .flex{
