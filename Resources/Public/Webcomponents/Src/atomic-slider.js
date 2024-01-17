@@ -416,12 +416,12 @@ export default class AtomicSlider extends HTMLElement {
     this.shadowRoot.innerHTML = `  
         <slot name="previous-next" class='${this.disablePrevNext === true ? "hidden" :""} '></slot>
         
-        <div class="slides">
+        <div class="slides" part="slides">
             <slot @slotchange="${this._onSlotchange}"></slot>        
         </div>
         ${this.predefinedNavDots}
-        <div class="nav-dot-wrapper ${this.disableNavDots === true || this.predefinedNavDots.length > 0 ? `hidden` : ""}">
-            <ul class="nav-dots">Dot-Navigation: no slides found</ul>
+        <div class="nav-dot-wrapper ${this.disableNavDots === true || this.predefinedNavDots.length > 0 ? `hidden` : ""}" part="nav-dot-wrapper">
+            <ul class="nav-dots" part="nav-dots">Dot-Navigation: no slides found</ul>
             <atomic-loadingbar time="${this.timeMs}" begin></atomic-loadingbar>
         </div>
         
