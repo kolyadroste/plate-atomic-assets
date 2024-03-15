@@ -16,6 +16,10 @@ class AtomicSliderResponsiveCols extends HTMLElement {
         this._initElements();
     }
 
+    get alignRight() {
+        return this.hasAttribute('alignRight');
+    }
+
     _initElements() {
         if(!this.slideSelector) {
             console.error("atomic-slider-responsive-cols: slides defined by slideSelector could not be found");
@@ -89,21 +93,21 @@ class AtomicSliderResponsiveCols extends HTMLElement {
     }
 
     _putElementsInCols(colsAmount) {
+        console.log("putting elements in cols");
         let elements = this.elements;
-        let colWrapperAmount = Math.ceil(elements.length / colsAmount);
         let containerElements = this.targetContainer.querySelectorAll('[asrc-container]');
         let col;
-        // remmove all conrainer elements
-        if(containerElements.length > 0) {
+        // Remove all container elements
+        if (containerElements.length > 0) {
             containerElements.forEach((item) => {
                 item.remove();
             });
         }
-        // rebuild container elements
+        // Rebuild container elements
         let countColNum = 0;
         for (let i = 0; i < elements.length; i++) {
-            // elements are grouped by colSize
-            if (i % (colsAmount) === 0) {
+            // Elements are grouped by colSize
+            if (i % colsAmount === 0) {
                 col = document.createElement('div');
                 col.setAttribute("asrc-container", "");
                 col.classList.add('asrc-row');
@@ -112,16 +116,28 @@ class AtomicSliderResponsiveCols extends HTMLElement {
                 col.style.display = "grid";
                 col.style.width = "100%";
                 col.style.gap = "var(--atomic-slider-responsive-cols-gap, 5px)";
-                col.style.gridTemplateColumns = "repeat(" + colsAmount +",minmax(0,1fr))";
+                col.style.gridTemplateColumns = "repeat(" + colsAmount + ", minmax(0, 1fr))";
                 this.targetContainer.appendChild(col);
-                countColNum ++;
+                countColNum++;
             }
             elements[i].classList.add('col');
             col.appendChild(elements[i]);
         }
+        // Check if this.alignRight is true and then add filler elements if necessary
+        if (this.alignRight) {
+            console.log("true");
+            let lastColChildCount = col.childElementCount;
+            for (let i = lastColChildCount; i < colsAmount; i++) {
+                let fillerElement = document.createElement('div');
+                fillerElement.classList.add('col', 'filler');
+                col.prepend(fillerElement);
+            }
+        }
+
         let colChange = new CustomEvent('as-responsive-cols-update', {detail: {cols: colsAmount}});
         this.dispatchEvent(colChange);
     }
+
 }
 
 if(!customElements.get('atomic-slider-responsive-cols')){
