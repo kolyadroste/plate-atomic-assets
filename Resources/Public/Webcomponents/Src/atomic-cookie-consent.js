@@ -63,6 +63,7 @@ class AtomicCookieConsent extends HTMLElement {
     }
 
     static get doConsentCookieExist(){
+        // returns boolean
         return !!AtomicCookieConsent.getCookie(AtomicCookieConsent.cookieIdentifier);
     }
 
@@ -80,6 +81,7 @@ class AtomicCookieConsent extends HTMLElement {
     }
 
     get isCookieConsentedGlobally(){
+        console.log("isCookieConsentedGlobally");
         if(!AtomicCookieConsent.doConsentCookieExist){
             console.log(this.constructor.name + ': cookie:"' + this.identifier +'" isnt consented globally');
             return false;
@@ -93,6 +95,9 @@ class AtomicCookieConsent extends HTMLElement {
     }
 
     static createCookie(){
+        if(this.hasAttribute("disableDefaultCookie")) {
+            return;
+        }
         let baseSettings = {"consent":false,"options":[]};
         baseSettings = encodeURIComponent(JSON.stringify(baseSettings));
         var d = new Date();
@@ -112,10 +117,9 @@ class AtomicCookieConsent extends HTMLElement {
         }
         if(!AtomicCookieConsent.doConsentCookieExist){
             console.log("updateCookieConsent: cookie doesnt exist");
-            this.createCookie();
+            AtomicCookieConsent.createCookie();
         }
         let cookie = this.getCookie(AtomicCookieConsent.cookieIdentifier);
-
         if(cookie.options && cookie.options.includes(identifier)) return;
         let baseSettings = {"consent":true,"options":[]};
         baseSettings.options = cookie.options;
@@ -131,7 +135,6 @@ class AtomicCookieConsent extends HTMLElement {
 
     connectedCallback () {
         this.render();
-
         this.allowBt.addEventListener('click',(e)=>{
             this._onClickAllow();
         })
@@ -145,8 +148,12 @@ class AtomicCookieConsent extends HTMLElement {
             this.hideConsentContent();
         }
 
-        document.addEventListener('atomic-cookie-consent-' + this.identifier, ()=>{
-            this.showConsentContent();
+        document.addEventListener('atomic-cookie-consent', (e)=>{
+            if(e.detail.identifier === this.identifier && (e.detail.type === null || e.detail.type === 'add')){
+                this.showConsentContent();
+            }else if(e.detail.identifier === this.identifier && e.detail.type === 'remove'){
+                this.hideConsentContent();
+            }
         }, false);
 
     }
@@ -156,35 +163,52 @@ class AtomicCookieConsent extends HTMLElement {
     }
 
     _onClickAllowGlobally(){
+        if(this.hasAttribute("overrideAllCallback")){
+            eval(this.getAttribute("overrideAllCallback"));
+            return;
+        }
         if(!AtomicCookieConsent.doConsentCookieExist){
             AtomicCookieConsent.createCookie();
         }
         AtomicCookieConsent.updateCookieConsent(this.identifier);
 
-        document.dispatchEvent(new CustomEvent('atomic-cookie-consent-' + this.identifier));
+        document.dispatchEvent(new CustomEvent('atomic-cookie-consent', {detail: {identifier: this.identifier,type:'add'}}));
     }
 
     showConsentContent(){
         if(this.hasAttribute("loaded")){
+            //console.log("already loaded");
             return;
         }
         this.setAttribute('loaded','');
-        let protectedContent = this.querySelector('script[type="text/x-gdpr-protected"]');
+        let protectedContent = this.querySelectorAll('script[type="text/x-gdpr-protected"]');
+        let protectedScriptLoads = this.querySelectorAll('script[data-src]');
+        let protectedScripts = this.querySelectorAll('script[type="script/x-gdpr-protected"]');
+
         if(protectedContent){
-            let replace = protectedContent.innerHTML;
-            if(!this.slotConsentedContent){
-                const visibleContentSlot = document.createElement("div");
-                visibleContentSlot.setAttribute("slot","consentedContent");
-                this.appendChild(visibleContentSlot);
-                visibleContentSlot.innerHTML = replace;
+            protectedContent.forEach((content)=>{
+                let replace = content.innerHTML;
+                if(!this.slotConsentedContent){
+                    const visibleContentSlot = document.createElement("div");
+                    visibleContentSlot.setAttribute("slot","consentedContent");
+                    this.appendChild(visibleContentSlot);
+                    visibleContentSlot.innerHTML = replace;
 
-            }else{
-                this.slotConsentedContent.innerHTML = replace;
-            }
-
-            protectedContent.innerHTML = '';
+                }else{
+                    this.slotConsentedContent.innerHTML = replace;
+                }
+                let elementsWithDataSrc = this.querySelectorAll("*[data-src]");
+                if(elementsWithDataSrc.length > 0){
+                    elementsWithDataSrc.forEach((element)=>{
+                        let src = element.getAttribute('data-src');
+                        element.setAttribute('src',src);
+                    });
+                }
+                content.innerHTML = '';
+            });
         }
 
+        document.dispatchEvent(new CustomEvent('atomic-cookie-consent', {detail: {identifier: this.identifier,type:'add'}}));
     }
 
     hideConsentContent(){
@@ -208,7 +232,9 @@ class AtomicCookieConsent extends HTMLElement {
     render(){
         this.shadowRoot.innerHTML = `
         <style>
-          :host{         
+          :host{
+             --atomic-cookie-consent--button-color: #008227;
+
              position:relative;
              display:block;
              min-height: var(--atomic-cookie-consent--min-height, 150px);
@@ -216,42 +242,46 @@ class AtomicCookieConsent extends HTMLElement {
           :host .overlay{
             z-index:10;
             background:var(--atomic-cookie-consent--background, #eee);
-            position:absolute;
+            position:relative;
             left:0;
             top:0;
-            height: calc(100% - 40px);
+            height: auto;
             width:calc(100% - 40px);
             display:flex;
             align-items: center;
             justify-content: center;
             padding:20px;
             box-shadow: 0 0 0 1px var(--atomic-cookie-consent--border-color.rgba(255,255,255,0.5));
-          }        
+          }
+          :host([embed16by9]) .overlay{
+            position:absolute;
+            height: calc(100% - 40px);
+          }
           :host .overlay{
             text-align:center;
           }
-          
+
           .intro-text{
             display:block;
           }
-          
+
           :host([loaded]) .overlay{
             display:none;
-            
+
           }
           :host button{
             display:inline-flex;
             padding:var(--atomic-cookie-consent--button-padding, 7px 15px);
             cursor:pointer;
-            border: var(--atomic-cookie-consent-button-border, 2px solid darkgreen);
-            border-color:var(--atomic-cookie-consent-button-background-color, darkgreen);
-            color: var(--atomic-cookie-consent-button-color , w);
+            border: var(--atomic-cookie-consent-button-border, 2px solid #008227);
+            border-color:var(--atomic-cookie-consent-button-background-color, #008227);
+            color: var(--atomic-cookie-consent-button-color , #008227);
             margin-bottom:10px;
           }
           :host button[allowAllBT]{
             display:inline-flex;
-            border: var(--atomic-cookie-consent-button-all--border, 2px solid darkgreen);
-            background: var(--atomic-cookie-consent-button-all-background-color, darkgreen);
+            border: var(--atomic-cookie-consent-button-all--border, 2px solid #008227);
+            background: var(--atomic-cookie-consent-button-all-background-color, #008227);
             color: var(--atomic-cookie-consent-button-all-color , white);
             margin-bottom:10px;
           }
@@ -274,28 +304,28 @@ class AtomicCookieConsent extends HTMLElement {
             height: 100%;
             border: 0;
           }
-          
         </style>
+
         <div class="overlay">
             <div class="centered">
                 <div part="intro-text">
                     <slot name="introtext">
                         <p>Mit dem Laden von \"${this.contentName}\" akzeptieren Sie die
-                        <br><a href=\"${this.linkPrivacyPolicy}\" target=\"blank\">Datenschutzerklärung</a> von ${this.contentProtector}.</p>                
-                    </slot>                
+                        <br><a href=\"${this.linkPrivacyPolicy}\" target=\"blank\">Datenschutzerklärung</a> von ${this.contentProtector}.</p>
+                    </slot>
                 </div>
                 <div part="buttons">
                     <slot name="allowButton">
                         <button allowBT class="button-allow" part="allowButton">
                             ${this.contentName} laden
-                        </button>    
+                        </button>
                     </slot>
                     <slot name="allowAllButton">
                         <button allowAllBT class="button-allow" part="allowAllButton">
                             ${this.contentName} "immer" laden
                         </button>
-                    </slot>            
-                </div>            
+                    </slot>
+                </div>
             </div>
         </div>
         <slot></slot>
