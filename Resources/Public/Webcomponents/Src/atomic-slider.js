@@ -430,7 +430,7 @@ export default class AtomicSlider extends HTMLElement {
           box-sizing: content-box;
           transition: all .5s ease-in-out;
           position: relative;
-          overflow: hidden;
+          overflow: var(--atomic-slider-overflow, hidden);
           display:none;
           padding-bottom: var(--atomic-slider-bottom-spacing,0px);
           background-color:var(--atomic-slider-background-color,transparent);
