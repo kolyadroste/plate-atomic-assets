@@ -115,7 +115,7 @@ class AtomicSliderResponsiveCols extends HTMLElement {
                 col.style.gridTemplateColumns = "repeat(" + colsAmount +",minmax(0,1fr))";
                 this.targetContainer.appendChild(col);
                 countColNum ++;
-            }s
+            }
             elements[i].classList.add('col');
             col.appendChild(elements[i]);
         }
