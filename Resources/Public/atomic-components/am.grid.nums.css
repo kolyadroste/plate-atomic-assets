@@ -2,32 +2,32 @@
 .am-grid-n\:\:cols-1{
     display:grid;
     grid-template-columns: minmax(0,1fr);
-    gap: var(--pac-gridnums-gap, 1rem);
+    gap: var(--am-grid-n-gap, 1rem);
 }
 .am-grid-n\:\:cols-2{
     display:grid;
     grid-template-columns: minmax(0,1fr);
-    gap: var(--pac-gridnums-gap, 1rem);
+    gap: var(--am-grid-n-gap, 1rem);
 }
 .am-grid-n\:\:cols-3{
     display:grid;
     grid-template-columns: minmax(0,1fr);
-    gap: var(--pac-gridnums-gap, 1rem);
+    gap: var(--am-grid-n-gap, 1rem);
 }
 .am-grid-n\:\:cols-4{
     display:grid;
     grid-template-columns: minmax(0,1fr);
-    gap: var(--pac-gridnums-gap, 1rem);
+    gap: var(--am-grid-n-gap, 1rem);
 }
 .am-grid-n\:\:cols-5{
     display:grid;
     grid-template-columns: minmax(0,1fr);
-    gap: var(--pac-gridnums-gap, 1rem);
+    gap: var(--am-grid-n-gap, 1rem);
 }
 .am-grid-n\:\:cols-6{
     display:grid;
     grid-template-columns: minmax(0,1fr);
-    gap: var(--pac-gridnums-gap, 1rem);
+    gap: var(--am-grid-n-gap, 1rem);
 }
 @media (min-width: 481px){
     .am-grid-n\:\:cols-2,
@@ -70,15 +70,18 @@
     .xxs\(am-grid-n\:\:cols-2\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col2-xxs,minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .xxs\(am-grid-n\),
     .xxs\(am-grid-n\:\:cols-3\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col3-xxs,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .xxs\(am-grid-n\:\:cols-4\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col4-xxs,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
 }
 
@@ -86,146 +89,178 @@
     .xs\(am-grid-n\:\:cols-1\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col1-xs,minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .xs\(am-grid-n\:\:cols-2\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col2-xs,minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .xs\(am-grid-n\),
     .xs\(am-grid-n\:\:cols-3\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col3-xs,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .xs\(am-grid-n\:\:cols-4\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col4-xs,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
 }
 @media (min-width: 577px){
     .sm\(am-grid-n\:\:cols-1\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col1-sm,minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .sm\(am-grid-n\:\:cols-2\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col2-sm,minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .sm\(am-grid-n\),
     .sm\(am-grid-n\:\:cols-3\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col3-sm,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .sm\(am-grid-n\:\:cols-4\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col4-sm,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
 }
 @media (min-width: 769px){
     .md\(am-grid-n\:\:cols-1\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col1-md,minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .md\(am-grid-n\:\:cols-2\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col2-md,minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .md\(am-grid-n\),
     .md\(am-grid-n\:\:cols-3\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col3-md,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .md\(am-grid-n\:\:cols-4\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col4-md,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .md\(am-grid-n\:\:cols-5\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col5-md,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .md\(am-grid-n\:\:cols-6\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col6-md,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
 }
 @media (min-width: 993px){
     .lg\(am-grid-n\:\:cols-1\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col1-lg,minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .lg\(am-grid-n\:\:cols-2\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col2-lg,minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .lg\(am-grid-n\),
     .lg\(am-grid-n\:\:cols-3\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col3-lg,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .lg\(am-grid-n\:\:cols-4\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col4-lg,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .lg\(am-grid-n\:\:cols-5\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col5-lg,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .lg\(am-grid-n\:\:cols-6\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col6-lg,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
 }
 @media (min-width: 1201px){
     .xl\(am-grid-n\:\:cols-1\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col1-xl,minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .xl\(am-grid-n\:\:cols-2\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col2-xl,minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .xl\(am-grid-n\),
     .xl\(am-grid-n\:\:cols-3\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col3-xl,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .xl\(am-grid-n\:\:cols-4\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col4-xl,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .xl\(am-grid-n\:\:cols-5\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col5-xl,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .xl\(am-grid-n\:\:cols-6\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col6-xl,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
 }
-}
+
 @media (min-width: 1401px){
     .xxl\(am-grid-n\:\:cols-1\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col1-xxl,minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .xxl\(am-grid-n\:\:cols-2\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col2-xxl,minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .xxl\(am-grid-n\),
     .xxl\(am-grid-n\:\:cols-3\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col3-xxl,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .xxl\(am-grid-n\:\:cols-4\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col4-xxl,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .xxl\(am-grid-n\:\:cols-5\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col5-xxl,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
     .xxl\(am-grid-n\:\:cols-6\){
         display:grid;
         grid-template-columns: var(--am-grid-n-col6-xxl,minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr));
+        gap: var(--am-grid-n-gap, 1rem);
     }
 }
