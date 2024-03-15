@@ -119,6 +119,7 @@ class AtomicSliderResponsiveCols extends HTMLElement {
             elements[i].classList.add('col');
             col.appendChild(elements[i]);
         }
+        new CustomEvent('as-responsive-cols-update', {detail: {cols: colsAmount}});
     }
 }
 
