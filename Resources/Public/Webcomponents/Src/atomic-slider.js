@@ -356,10 +356,15 @@ export default class AtomicSlider extends HTMLElement {
    * @param targetSlide number
    */
   _goToSlide(targetSlide)  {
+    this._addSlideNumToComponent(targetSlide);
     this._setIndividualTime(targetSlide);
     this.resetInterval();
     this.selectSlide(targetSlide);
     this.dispatchEvent(this.slideChange);
+  }
+
+  _addSlideNumToComponent(slide){
+    this.setAttribute('data-num',slide);
   }
 
   _setIndividualTime(targetSlideNum){
