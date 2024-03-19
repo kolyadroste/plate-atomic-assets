@@ -46,10 +46,12 @@ class AtomicColSlider extends HTMLElement {
               top: 50%;
               z-index: 1;
               transform: translateY(-50%);
-              background-color: #fff;
-              border: none;
+            }
+            button{
               height: var(--acs-control-dim, 30px);
               width: var(--acs-control-dim, 30px);
+              background-color: #fff;
+              border: none;
               display: flex;
               align-items: center;
               justify-content: center;
@@ -62,11 +64,11 @@ class AtomicColSlider extends HTMLElement {
             .prev { left: 0; }
             .next { right: 0; }
           </style>
-          <slot name="prev"><button class="control prev">&#10094;</button></slot>
+          <div class="control prev"><slot name="prev"><button class="prev">&#10094;</button></slot></div>
           <div class="slider-container" part="container">
             <slot class="slider-slot"></slot>
           </div>
-          <slot name="prev"><button class="control next">&#10095;</button></slot>
+          <div class="control next"><slot name="next"><button class="next">&#10095;</button></slot></div>
         `;
 
         this.index = prefinedIndex ? parseInt(prefinedIndex, 10) : 0;
@@ -89,7 +91,7 @@ class AtomicColSlider extends HTMLElement {
 
     //get all slotted elements
     get items() {
-        return this.querySelectorAll(':scope > *');
+        return this.querySelectorAll(':scope > *:not([slot])');
     }
     get slideAmount() {
         return this.items.length;
