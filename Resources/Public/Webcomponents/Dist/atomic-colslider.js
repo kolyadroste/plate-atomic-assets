@@ -1,7 +1,6 @@
 class AtomicColSlider extends HTMLElement {
     constructor() {
         super();
-        console.log("init");
         this.attachShadow({ mode: 'open' });
         const prefinedIndex = this.getAttribute('index');
         this.shadowRoot.innerHTML = `
@@ -103,11 +102,56 @@ class AtomicColSlider extends HTMLElement {
         this.init();
         this.setupEvents();
         this.updateLayout();
+
         window.addEventListener('resize', this.updateLayout.bind(this));
+
+        if ('ontouchstart' in window) {
+            this.setupTouchEvents();
+        }
+
+        this.sliderContainer.addEventListener('transitionend', () => {
+            this.isSliding = false;
+        });
     }
 
     disconnectedCallback() {
         window.removeEventListener('resize', this.updateLayout.bind(this));
+        if ('ontouchstart' in window) {
+            this.removeTouchEvents();
+        }
+    }
+
+    setupTouchEvents() {
+        let startX = 0;
+        const onTouchStart = (e) => {
+            if (this.isSliding) return;
+            startX = e.touches[0].pageX;
+        };
+
+        const onTouchMove = (e) => {
+            if (this.isSliding) return;
+            const touch = e.touches[0];
+            const change = startX - touch.pageX;
+            if (change > 40) {
+
+                this.slide(1);
+                e.preventDefault();
+            } else if (change < -40) {
+                this.slide(-1);
+                e.preventDefault();
+            }
+        };
+
+        this.sliderContainer.addEventListener('touchstart', onTouchStart);
+        this.sliderContainer.addEventListener('touchmove', onTouchMove);
+
+        this._onTouchStart = onTouchStart;
+        this._onTouchMove = onTouchMove;
+    }
+
+    removeTouchEvents() {
+        this.sliderContainer.removeEventListener('touchstart', this._onTouchStart);
+        this.sliderContainer.removeEventListener('touchmove', this._onTouchMove);
     }
 
     init() {
@@ -159,6 +203,8 @@ class AtomicColSlider extends HTMLElement {
     }
 
     slide(direction) {
+        if (this.isSliding) return;
+        this.isSliding = true;
         const items = this.shadowRoot.querySelector('.slider-slot').assignedElements();
         this.index += direction;
         if (this.index > items.length - this.cols) this.index = 0;
