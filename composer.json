@@ -1,9 +1,15 @@
 {
     "name": "atomicplan/plate-atomic-assets",
     "type": "typo3-cms-extension",
-    "description": "Plate Ces - Provide a set of contentelements",
+    "description": "Provides a parsed atomic version of Bootstrap additional css-libs and js-components,  for the TYPO3 CMS.",
     "license": "GPL-2.0-or-later",
     "keywords": ["TYPO3 CMS", "Integrators", "Site Extension", "Site Package", "TypoScript"],
+    "authors": [
+        {
+            "name": "Kolya von Droste zu Vischering",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": "^7.4 || ^8.0",
         "typo3/cms-core": "^10.0 || ^11.0 || ^12.0"
